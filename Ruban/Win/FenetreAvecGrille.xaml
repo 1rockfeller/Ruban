@@ -1,0 +1,51 @@
+﻿<Window x:Class="Ruban.Win.FenetreAvecGrille"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ruban.Win"
+        mc:Ignorable="d"
+       Title="Liste des titres" Height="602.867" Width="1131.291" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid Margin="0,0,2,2" FocusManager.FocusedElement="{Binding ElementName=txt_search}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="grid_titre" HorizontalAlignment="Left" VerticalAlignment="Top" Height="505" Width="1052" Margin="4,49,0,0" Grid.RowSpan="2" 
+                  MouseDoubleClick="grid_titre_MouseDoubleClick" CanUserAddRows="False" IsReadOnly="False" AutoGenerateColumns="False" AlternationCount="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" Titre " Width="*" Binding="{Binding Titre}" />
+                <DataGridTextColumn Header=" Titre " Width="3*" Binding="{Binding Titre.Titre}" />
+                <DataGridTextColumn Header=" Titre " Width="*" Binding="{Binding dateTitre , StringFormat='dd/MM/yyyy'}" />
+                <DataGridTextColumn Header=" Titre " Width="2*" Binding="{Binding Titre}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Rechercher :" HorizontalAlignment="Left" Margin="0,12,0,0" VerticalAlignment="Top" Width="78" Grid.RowSpan="2" Height="26"/>
+        <TextBox  x:Name="txt_search" Tag="Search" HorizontalAlignment="Left" Height="23" Margin="88,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Grid.RowSpan="2" TextChanged="txt_search_TextChanged"/>
+
+        <StackPanel Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="1062,0,4,10" Grid.RowSpan="2" Width="60" Height="269" >
+            <Button x:Name="bt_add" Tag="Add" Height="40" Width="40" Margin="5,5" ToolTip="Nouveau" Click="bt_add_Click" >
+                <Image Source="../Images/add_green.png" />
+            </Button>
+            <Button x:Name="bt_refresh" Tag="Refresh" Height="40" Width="40" Margin="5,5" ToolTip="Actualiser" Click="bt_refresh_Click" >
+                <Image Source="../Images/available_updates.png" />
+            </Button>
+
+            <Button x:Name="bt_select" Tag="Select" Height="40" Width="40" Margin="5,5" ToolTip="Séléctionner" Click="bt_select_Click" >
+                <Image Source="../Images/eye_open.png" />
+            </Button>
+
+            <Button x:Name="bt_update" Tag="Update" Height="40" Width="40" Margin="5,5" ToolTip="Modifier" Click="bt_update_Click" >
+                <Image Source="../Images/edit_item.png" />
+            </Button>
+
+            <Button x:Name="bt_delete" Tag="Delete" Height="40" Width="40" Margin="5,5" ToolTip="Supprimer" Click="bt_delete_Click" >
+                <Image Source="../Images/Exit_16x16.png" />
+            </Button>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
